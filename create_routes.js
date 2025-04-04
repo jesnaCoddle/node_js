@@ -1,4 +1,4 @@
-const express =require('express');
+import express from 'express';
 const app=express();
 const port=3001;
 
@@ -12,6 +12,11 @@ app.get('/about',(req,res)=>{
 
 app.get('/contact',(req,res)=>{
     res.send('Welcome to contact us page!');
+});
+
+app.get('*',(req,res)=>{
+    res.status(404);
+    res.send('<h1>404</h1>');
 });
 
 app.listen(port,() =>{
